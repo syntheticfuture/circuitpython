@@ -143,3 +143,18 @@
 [submodule "ports/esp32s2/esp-idf"]
 	path = ports/esp32s2/esp-idf
 	url = https://github.com/tannewt/esp-idf.git
+[submodule "frozen/Adafruit_CircuitPython_IL0398"]
+	path = frozen/Adafruit_CircuitPython_IL0398
+	url = https://github.com/adafruit/Adafruit_CircuitPython_IL0398
+[submodule "frozen/Adafruit_CircuitPython_Display_Shapes"]
+	path = frozen/Adafruit_CircuitPython_Display_Shapes
+	url = https://github.com/adafruit/Adafruit_CircuitPython_Display_Shapes
+[submodule "frozen/Adafruit_CircuitPython_Bitmap_Font"]
+	path = frozen/Adafruit_CircuitPython_Bitmap_Font
+	url = https://github.com/adafruit/Adafruit_CircuitPython_Bitmap_Font
+[submodule "frozen/Adafruit_CircuitPython_Debouncer"]
+	path = frozen/Adafruit_CircuitPython_Debouncer
+	url = https://github.com/adafruit/Adafruit_CircuitPython_Debouncer
+[submodule "frozen/Adafruit_CircuitPython_Display_Text"]
+	path = frozen/Adafruit_CircuitPython_Display_Text
+	url = https://github.com/adafruit/Adafruit_CircuitPython_Display_Text
