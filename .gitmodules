@@ -158,3 +158,6 @@
 [submodule "frozen/Adafruit_CircuitPython_Display_Text"]
 	path = frozen/Adafruit_CircuitPython_Display_Text
 	url = https://github.com/adafruit/Adafruit_CircuitPython_Display_Text
+[submodule "frozen/Adafruit_CircuitPython_ImageLoad"]
+	path = frozen/Adafruit_CircuitPython_ImageLoad
+	url = https://github.com/adafruit/Adafruit_CircuitPython_ImageLoad
