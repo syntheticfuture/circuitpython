@@ -1,5 +1,5 @@
 USB_VID = 0x239A
-USB_PID = 0x8023
+USB_PID = 0x80D1
 USB_PRODUCT = "Feather M0 Express"
 USB_MANUFACTURER = "Adafruit Industries LLC"
 
@@ -20,7 +20,6 @@ CIRCUITPY_GAMEPAD = 0
 CFLAGS_INLINE_LIMIT = 50
 
 # Include these Python libraries in firmware.
-FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_BusDevice
 FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_Crickit
 FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_Motor
 FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_NeoPixel

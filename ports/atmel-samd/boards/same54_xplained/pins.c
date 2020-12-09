@@ -1,4 +1,17 @@
+#include "py/objtuple.h"
 #include "shared-bindings/board/__init__.h"
+
+STATIC const mp_rom_obj_tuple_t sdio_data_tuple = {
+    {&mp_type_tuple},
+    4,
+    {
+        MP_ROM_PTR(&pin_PB18),
+        MP_ROM_PTR(&pin_PB19),
+        MP_ROM_PTR(&pin_PB20),
+        MP_ROM_PTR(&pin_PB21),
+    }
+};
+
 
 // This mapping only includes functional names because pins broken
 // out on connectors are labeled with their MCU name available from
@@ -35,8 +48,9 @@ STATIC const mp_rom_map_elem_t board_global_dict_table[] = {
 
     { MP_OBJ_NEW_QSTR(MP_QSTR_QT),  MP_ROM_PTR(&pin_PA16) },
 
-    { MP_OBJ_NEW_QSTR(MP_QSTR_CANRX),  MP_ROM_PTR(&pin_PB12) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_CANTX),  MP_ROM_PTR(&pin_PB13) },
+    { MP_OBJ_NEW_QSTR(MP_QSTR_CAN_RX),  MP_ROM_PTR(&pin_PB13) },
+    { MP_OBJ_NEW_QSTR(MP_QSTR_CAN_TX),  MP_ROM_PTR(&pin_PB12) },
+    { MP_OBJ_NEW_QSTR(MP_QSTR_CAN_STANDBY),  MP_ROM_PTR(&pin_PC13) },
 
     // EXT1 header
     { MP_OBJ_NEW_QSTR(MP_QSTR_PB04),  MP_ROM_PTR(&pin_PB04) },
@@ -95,5 +109,9 @@ STATIC const mp_rom_map_elem_t board_global_dict_table[] = {
     { MP_ROM_QSTR(MP_QSTR_I2C), MP_ROM_PTR(&board_i2c_obj) },
     { MP_ROM_QSTR(MP_QSTR_SPI), MP_ROM_PTR(&board_spi_obj) },
     { MP_ROM_QSTR(MP_QSTR_UART), MP_ROM_PTR(&board_uart_obj) },
+
+    { MP_ROM_QSTR(MP_QSTR_SDIO_CLOCK), MP_ROM_PTR(&pin_PA21) },
+    { MP_ROM_QSTR(MP_QSTR_SDIO_COMMAND), MP_ROM_PTR(&pin_PA20) },
+    { MP_ROM_QSTR(MP_QSTR_SDIO_DATA), MP_ROM_PTR(&sdio_data_tuple) },
 };
 MP_DEFINE_CONST_DICT(board_module_globals, board_global_dict_table);

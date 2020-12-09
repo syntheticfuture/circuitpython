@@ -3,7 +3,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2013, 2014 Damien P. George
+ * SPDX-FileCopyrightText: Copyright (c) 2013, 2014 Damien P. George
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,9 @@
 
 #ifdef SAMD21
 #include "hpl/pm/hpl_pm_base.h"
+#endif
+#ifdef SAME51
+#include "hri/hri_mclk_e51.h"
 #endif
 #ifdef SAME54
 #include "hri/hri_mclk_e54.h"

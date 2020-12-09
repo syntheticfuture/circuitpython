@@ -26,9 +26,9 @@
  */
 
 #include <stdint.h>
+#include "supervisor/board.h"
 #include "supervisor/port.h"
 #include "supervisor/shared/tick.h"
-#include "boards/board.h"
 #include "irq.h"
 #include "csr.h"
 
@@ -85,13 +85,21 @@ void reset_port(void) {
 
 void reset_to_bootloader(void) {
     reboot_ctrl_write(0xac);
+    for(;;) {}
 }
 
 void reset_cpu(void) {
+    // "You can reset Fomu by writing a special value to the CSR_REBOOT_CTRL
+    // register at 0xe0006000L. All writes to this register must start with
+    // 0xac, to ensure random values aren’t written. We can reboot Fomu by
+    // simply writing this value" --
+    //     https://workshop.fomu.im/en/latest/riscv.html
+    reboot_ctrl_write(0xac);
+    for(;;) {}
 }
 
-supervisor_allocation* port_fixed_stack(void) {
-    return NULL;
+bool port_has_fixed_stack(void) {
+    return false;
 }
 
 uint32_t *port_heap_get_bottom(void) {
@@ -120,7 +128,11 @@ uint32_t port_get_saved_word(void) {
 }
 
 uint64_t port_get_raw_ticks(uint8_t* subticks) {
-    return raw_ticks;
+    // Reading 64 bits may take two loads, so turn of interrupts while we do it.
+    irq_setie(false);
+    uint64_t raw_tick_snapshot = raw_ticks;
+    irq_setie(true);
+    return raw_tick_snapshot;
 }
 
 // Enable 1/1024 second tick.
@@ -135,5 +147,5 @@ void port_interrupt_after_ticks(uint32_t ticks) {
 }
 
 // TODO: Add sleep support if the SoC supports sleep.
-void port_sleep_until_interrupt(void) {
+void port_idle_until_interrupt(void) {
 }
